@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Library Desk | Book Management</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Library Desk home">
+      <span class="brand-mark">L</span>
+      <span><strong>Library Desk</strong><small>Book management</small></span>
+    </a>
+    <span class="status"><span class="status-dot"></span> Local library workspace</span>
+  </header>
+
+  <main class="container">
+    <section class="welcome">
+      <div>
+        <p class="eyebrow">LIBRARY MANAGEMENT</p>
+        <h1>Books, in one place.</h1>
+        <p class="subheading">Browse your collection and keep book records up to date.</p>
+      </div>
+      <div class="book-count"><span id="bookCount">—</span><small>books in collection</small></div>
+    </section>
+
+    <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+
+    <section class="workspace">
+      <div class="panel collection-panel">
+        <div class="panel-heading">
+          <div><p class="eyebrow">YOUR COLLECTION</p><h2>All books</h2></div>
+          <button id="refreshButton" class="button button-light" type="button">↻ Refresh</button>
+        </div>
+        <div class="toolbar">
+          <label class="search-box" for="searchInput"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="Search by title, author or ID" autocomplete="off" /></label>
+          <span id="resultCount" class="muted small"></span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th class="id-col">ID</th><th>Book</th><th>Author</th><th class="actions-col">Actions</th></tr></thead>
+            <tbody id="booksTableBody"><tr><td colspan="4" class="table-message">Loading your collection…</td></tr></tbody>
+          </table>
+        </div>
+        <p class="table-footnote">Choose a book's Edit or Delete action to manage its record.</p>
+      </div>
+
+      <aside class="panel form-panel">
+        <div class="panel-heading form-heading">
+          <div><p class="eyebrow">BOOK DETAILS</p><h2 id="formTitle">Add a book</h2></div>
+          <span class="form-icon" aria-hidden="true">＋</span>
+        </div>
+        <p class="muted form-intro" id="formIntro">Add a new title to the library collection.</p>
+        <form id="bookForm">
+          <label for="bookId">Book ID <span class="required">*</span></label>
+          <input id="bookId" name="id" type="number" min="1" step="1" placeholder="e.g. 4" required />
+          <small class="field-help" id="idHelp">Use a unique positive number.</small>
+
+          <label for="bookTitle">Title <span class="required">*</span></label>
+          <input id="bookTitle" name="title" type="text" maxlength="180" placeholder="Enter book title" required />
+
+          <label for="bookAuthor">Author <span class="required">*</span></label>
+          <input id="bookAuthor" name="author" type="text" maxlength="120" placeholder="Enter author name" required />
+
+          <div class="form-actions">
+            <button id="submitButton" class="button button-primary" type="submit">Add book</button>
+            <button id="cancelButton" class="button button-light" type="button" hidden>Cancel</button>
+          </div>
+        </form>
+        <div class="permission-note"><span aria-hidden="true">ⓘ</span><p><strong>Librarian actions</strong><br />Adding, editing and deleting use the API's librarian role.</p></div>
+      </aside>
+    </section>
+    <footer><span>Library Desk</span><span>Simple tools for a well-kept collection</span></footer>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
