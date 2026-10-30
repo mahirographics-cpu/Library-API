@@ -94,3 +94,48 @@ footer { display: flex; justify-content: space-between; gap: 15px; color: #929aa
 [hidden] { display: none !important; }
 @media (max-width: 860px) { .workspace { grid-template-columns: 1fr; } .form-panel { order: -1; } .form-panel form { display: grid; grid-template-columns: 1fr 1fr; column-gap: 14px; } .form-panel form label { margin-top: 10px; } .form-panel form .field-help { grid-column: 1 / -1; } .form-actions { grid-column: 1 / -1; } .permission-note { margin-top: 16px; } }
 @media (max-width: 560px) { .topbar { padding: 0 18px; min-height: 68px; } .status { font-size: 0; gap: 0; } .container { padding: 27px 14px 18px; } .welcome { align-items: start; flex-direction: column; gap: 18px; } .book-count { width: 100%; } .collection-panel, .form-panel { padding: 16px; } .toolbar { align-items: start; flex-direction: column; } .search-box { width: 100%; } .form-panel form { display: block; } .form-actions { display: flex; } footer { flex-direction: column; gap: 4px; } }
+
+.logged-in-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 18px;
+  padding: 9px 11px;
+  border-radius: 7px;
+  background: var(--success-pale);
+  color: var(--success);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.logged-in-info .status-dot {
+  flex-shrink: 0;
+}
+
+.logout-button {
+  width: 100%;
+  margin-top: 14px;
+  color: var(--danger);
+}
+
+#loginForm .form-actions {
+  margin-top: 20px;
+}
+
+#loginForm .form-actions button {
+  width: 100%;
+}
+
+#librarianSection .form-intro {
+  margin-bottom: 12px;
+}
+
+#librarianSection form label {
+  margin-top: 13px;
+}
+
+@media (max-width: 860px) {
+  #loginForm {
+    display: block;
+  }
+}
